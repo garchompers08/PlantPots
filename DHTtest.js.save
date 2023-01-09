@@ -1,0 +1,4 @@
+7var sensorLib = require("node-dht-sensor");
+var sensorResult = sensorLib.read(22, 18);
+console.log("Temperature: " + sensorResult.temperature.toFixed(1) + 
+   "°  / Humidity: " +  sensorResult.humidity.toFixed(1) + "%");
