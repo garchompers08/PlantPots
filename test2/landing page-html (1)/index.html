@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Landing Page</title>
+    <meta property="og:title" content="Landing Page" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Raleway;
+        font-size: 18px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.55;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <style>
+      html {
+      scroll-behavior: smooth;
+      }
+    </style>
+    <link rel="stylesheet" href="./style.css" />
+
+    <script>
+      fetch('fixed_data.json')
+        .then(response => response.json())
+        .then(data => {
+          // Get the last entry in the JSON file
+          const lastEntry = data[data.length - 1];
+
+          // Get all the elements that will display the data
+          const temperature = document.getElementById('temperature');
+          const humidity = document.getElementById('humidity');
+          const red = document.getElementById('red');
+          const green = document.getElementById('green');
+          const blue = document.getElementById('blue');
+          const clear = document.getElementById('clear');
+          const timestamp = document.getElementById('timestamp');
+
+          // Insert the data into the HTML
+          temperature.innerHTML = lastEntry.temperature;
+          humidity.innerHTML = lastEntry.humidity;
+          red.innerHTML = lastEntry.red;
+          green.innerHTML = lastEntry.green;
+          blue.innerHTML = lastEntry.blue;
+          clear.innerHTML = lastEntry.clear;
+          timestamp.innerHTML = lastEntry.timestamp;
+        });
+    </script>
+
+  </head>
+  <body>
+    <div>
+      <script
+        type="text/javascript"
+        src="https://unpkg.com/dangerous-html@0.1.11/dist/default/lib.umd.js"
+      ></script>
+      <link href="./home.css" rel="stylesheet" />
+
+      <div class="home-container">
+        <div data-role="Header" class="home-navbar-container">
+          <div class="home-navbar">
+            <div class="home-left-side">
+              <img
+                alt="image"
+                src="public/playground_assets/group%2010-200h.png"
+                class="home-image"
+              />
+              <div data-role="BurgerMenu" class="home-burger-menu">
+                <svg viewBox="0 0 1024 1024" class="home-icon">
+                  <path
+                    d="M128 256h768v86h-768v-86zM128 554v-84h768v84h-768zM128 768v-86h768v86h-768z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div class="home-right-side">
+              <div class="home-container1">
+                <div class="home-div textarea">
+                  <dangerous-html
+                    html="<style>
+  #clock {
+    font-family: Montserrat, sans-serif; /* This sets the font to Arial */
+  }
+</style>
+
+<div id='clock'></div>
+
+<script>
+  function updateClock() {
+    var currentTime = new Date();
+    var currentHours = currentTime.getHours();
+    var currentMinutes = currentTime.getMinutes();
+    var currentSeconds = currentTime.getSeconds();
+
+    // Pad the minutes and seconds with leading zeros, if required
+    currentMinutes = (currentMinutes < 10 ? '0' : '') + currentMinutes;
+    currentSeconds = (currentSeconds < 10 ? '0' : '') + currentSeconds;
+
+    // Choose either 'AM' or 'PM' as appropriate
+    var timeOfDay = (currentHours < 12) ? 'AM' : 'PM';
+
+    // Convert the hours component to 12-hour format if needed
+    currentHours = (currentHours > 12) ? currentHours - 12 : currentHours;
+
+    // Convert an hours component of '0' to '12'
+    currentHours = (currentHours == 0) ? 12 : currentHours;
+
+    // Compose the string for display
+    var currentTimeString = currentHours + ':' + currentMinutes + ':' + currentSeconds + ' ' + timeOfDay;
+
+    // Update the time display
+    document.getElementById('clock').innerHTML = currentTimeString;
+  }
+
+  // Call updateClock function every 1 second
+  setInterval(updateClock, 1000);
+</script>
+"
+                  ></dangerous-html>
+                </div>
+              </div>
+            </div>
+            <div data-role="MobileMenu" class="home-mobile-menu">
+              <div class="home-container2">
+                <img
+                  alt="image"
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  class="home-image1"
+                />
+                <div data-role="CloseMobileMenu" class="home-close-menu">
+                  <svg viewBox="0 0 1024 1024" class="home-icon2">
+                    <path
+                      d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="home-links-container">
+                <a href="#resources" class="home-link Anchor">Resources</a>
+                <span class="home-link1 Anchor">Inspiration</span>
+                <span class="home-link2 Anchor">Process</span>
+                <span class="home-link3 Anchor">Our story</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="resources" class="home-hero">
+          <div class="home-content-container">
+            <div class="home-hero-text">
+              <h1 class="home-heading">Welcome to Potplants</h1>
+              <span class="home-text">
+                This project aims to determine how level of temperature,
+                humidity, and acidity affect the growth of the Calamansi plant
+                or shrub.
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="home-section-separator"></div>
+        <div class="home-blog">
+          <div class="home-container3">
+            <div
+              class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3"
+            >
+              <img
+                alt="image"
+                src="https://images.unsplash.com/photo-1609725236589-d987ffc8133a?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDN8fFRlbXBlcmF0dXJlfGVufDB8fHx8MTY3NDk3NzA0Nw&amp;ixlib=rb-4.0.3&amp;w=1500"
+                image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000"
+                class="blog-post-card2-image"
+              />
+              <div class="blog-post-card2-container">
+                <div class="blog-post-card2-container1">
+                  <span class="blog-post-card2-text">
+                   <p>Temperature: <span id = "temperature"></span></p> 
+                   
+                  </span>
+                  <span class="blog-post-card2-text1"><span>Now</span></span>
+                </div>
+                <h1 class="blog-post-card2-text2"><span>Temperature</span></h1>
+                <span class="blog-post-card2-text3">
+                  <span>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    non volutpat turpis. Mauris luctus rutrum mi ut rhoncus.
+                    Integer in dignissim tortor. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing ...
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="home-container4">
+            <div
+              class="blog-post-card2-blog-post-card blog-post-card2-root-class-name2"
+            >
+              <img
+                alt="image"
+                src="https://images.unsplash.com/photo-1501691223387-dd0500403074?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDZ8fFJhaW58ZW58MHx8fHwxNjc0OTc4MzY0&amp;ixlib=rb-4.0.3&amp;w=1500"
+                image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000"
+                class="blog-post-card2-image"
+              />
+              <div class="blog-post-card2-container">
+                <div class="blog-post-card2-container1">
+                  <span class="blog-post-card2-text">
+                    <span>Live View</span>
+                  </span>
+                  <span class="blog-post-card2-text1"><span>Now</span></span>
+                </div>
+                <h1 class="blog-post-card2-text2"><span>Humidity</span></h1>
+                <span class="blog-post-card2-text3">
+                  <span>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    non volutpat turpis. Mauris luctus rutrum mi ut rhoncus.
+                    Integer in dignissim tortor. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing ...
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="home-container5">
+            <div
+              class="blog-post-card2-blog-post-card blog-post-card2-root-class-name1"
+            >
+              <img
+                alt="image"
+                src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDE5fHxDT2xvcnxlbnwwfHx8fDE2NzQ5NzgzMjY&amp;ixlib=rb-4.0.3&amp;w=1500"
+                image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000"
+                class="blog-post-card2-image"
+              />
+              <div class="blog-post-card2-container">
+                <div class="blog-post-card2-container1">
+                  <span class="blog-post-card2-text">
+                    <span>Live View</span>
+                  </span>
+                  <span class="blog-post-card2-text1"><span>Now</span></span>
+                </div>
+                <h1 class="blog-post-card2-text2"><span>Color Sensor</span></h1>
+                <span class="blog-post-card2-text3">
+                  <span>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    non volutpat turpis. Mauris luctus rutrum mi ut rhoncus.
+                    Integer in dignissim tortor. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing ...
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home-section-separator1"></div>
+        <div class="home-section-separator2"></div>
+        <div id="data-container">
+          <h1> Help</h1>
+
+          <p>Temperature: <span id="temperature"></span></p>
+          <p>Humidity: <span id="humidity"></span></p>
+          <p>Red: <span id="red"></span></p>
+          <p>Green: <span id="green"></span></p>
+          <p>Blue: <span id="blue"></span></p>
+          <p>Clear: <span id="clear"></span></p>
+          <p>Timestamp: <span id="timestamp"></span></p>
+          <script src="convert.js"></script>
+
+        </div>
+        
+        
+     
+    
+    
+    
+
+        <div class="home-footer-container">
+          <div class="home-footer">
+            <div class="home-copyright-container">
+              <svg viewBox="0 0 1024 1024" class="home-icon4">
+                <path
+                  d="M512 854q140 0 241-101t101-241-101-241-241-101-241 101-101 241 101 241 241 101zM512 86q176 0 301 125t125 301-125 301-301 125-301-125-125-301 125-301 301-125zM506 390q-80 0-80 116v12q0 116 80 116 30 0 50-17t20-43h76q0 50-44 88-42 36-102 36-80 0-122-48t-42-132v-12q0-82 40-128 48-54 124-54 66 0 104 38 42 42 42 98h-76q0-14-6-26-10-20-14-24-20-20-50-20z"
+                ></path>
+              </svg>
+              <span>Group 1 CPE124_E01</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
+  
+  </body>
+</html>

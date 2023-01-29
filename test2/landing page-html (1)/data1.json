@@ -1,0 +1,40 @@
+{
+    "data": [
+        {
+            "temperature": 24.600000381469727,
+            "humidity": 91.4000015258789,
+            "red": 71,
+            "green": 58,
+            "blue": 9,
+            "clear": 49,
+            "timestamp": "2023-01-29 06:15:36"
+        },
+        {
+            "temperature": 24.600000381469727,
+            "humidity": 89.4000015258789,
+            "red": 48,
+            "green": 52,
+            "blue": 9,
+            "clear": 66,
+            "timestamp": "2023-01-29 06:15:41"
+        },
+        {
+            "temperature": 24.600000381469727,
+            "humidity": 89.9000015258789,
+            "red": 58,
+            "green": 9,
+            "blue": 53,
+            "clear": 56,
+            "timestamp": "2023-01-29 06:15:47"
+        },
+        {
+            "temperature": 24.600000381469727,
+            "humidity": 90.19999694824219,
+            "red": 10,
+            "green": 82,
+            "blue": 58,
+            "clear": 9,
+            "timestamp": "2023-01-29 06:15:53"
+        }
+    ]
+}
