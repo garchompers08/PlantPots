@@ -1,0 +1,24 @@
+fetch("data1.json")
+.then(function(response){
+	return response.json();
+})
+.then(function(data1){
+	let placeholder = document.querySelector("#data-output");
+	let out = "";
+	for(let key of data1){
+		
+		out += `
+			<tr>
+				<td>${data.temperature}</td>
+				<td>${data.humidity}</td>
+				<td>${data.red}</td>
+				<td>${data.green}</td>
+				<td>${data.blue}</td>
+				<td>${data.clear}</td>
+                <td>${data.timestamp}</td>
+			</tr>
+		`;
+	}
+
+	placeholder.innerHTML = out;
+});
